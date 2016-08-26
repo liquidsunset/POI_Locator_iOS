@@ -1,15 +1,15 @@
 //
-//  Restaurant_FinderTests.swift
-//  Restaurant FinderTests
+//  POI_LocatorTests.swift
+//  POI LocatorTests
 //
-//  Created by Daniel Brand on 03.08.16.
+//  Created by Daniel Brand on 26.08.16.
 //  Copyright © 2016 Daniel Brand. All rights reserved.
 //
 
 import XCTest
-@testable import Restaurant_Finder
+@testable import POI_Locator
 
-class Restaurant_FinderTests: XCTestCase {
+class POI_LocatorTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

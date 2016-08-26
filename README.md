@@ -1,1 +1,1 @@
-# Restaurant_Finder_iOS
+# POI_Locator_iOS

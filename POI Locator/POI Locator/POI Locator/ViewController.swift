@@ -1,8 +1,8 @@
 //
 //  ViewController.swift
-//  Restaurant Finder
+//  POI Locator
 //
-//  Created by Daniel Brand on 03.08.16.
+//  Created by Daniel Brand on 26.08.16.
 //  Copyright © 2016 Daniel Brand. All rights reserved.
 //
 
