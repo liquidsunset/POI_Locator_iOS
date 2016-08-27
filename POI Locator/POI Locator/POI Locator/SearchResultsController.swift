@@ -28,6 +28,10 @@ class SearchResultsController: UITableViewController {
         return results.count
     }
     
+    override func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return false
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("resultIdentifier", forIndexPath: indexPath)
         cell.textLabel?.text = results[indexPath.row]
@@ -36,6 +40,13 @@ class SearchResultsController: UITableViewController {
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        dismissViewControllerAnimated(true, completion: nil)
+        
+        
     }
     
     func loadResults(searchResult: [String]) {

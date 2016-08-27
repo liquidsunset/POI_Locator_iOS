@@ -25,6 +25,7 @@
 		34DC3EF01D704CD600CD4254 /* GMapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DC3EEF1D704CD600CD4254 /* GMapsViewController.swift */; };
 		34DC3EF21D704D4B00CD4254 /* SearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DC3EF11D704D4B00CD4254 /* SearchResultsController.swift */; };
 		34DC3EF41D71A11600CD4254 /* HelperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DC3EF31D71A11600CD4254 /* HelperViewController.swift */; };
+		34DC3EF61D71CAE000CD4254 /* GoogleMapsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DC3EF51D71CAE000CD4254 /* GoogleMapsClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		34DC3EEF1D704CD600CD4254 /* GMapsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GMapsViewController.swift; sourceTree = "<group>"; };
 		34DC3EF11D704D4B00CD4254 /* SearchResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsController.swift; sourceTree = "<group>"; };
 		34DC3EF31D71A11600CD4254 /* HelperViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperViewController.swift; sourceTree = "<group>"; };
+		34DC3EF51D71CAE000CD4254 /* GoogleMapsClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMapsClient.swift; sourceTree = "<group>"; };
 		39A482562B37593C86FAD5B7 /* libPods-POI Locator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-POI Locator.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B358D6A3072C2F664BA8FCA9 /* Pods-POI Locator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-POI Locator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-POI Locator/Pods-POI Locator.debug.xcconfig"; sourceTree = "<group>"; };
 		B9DFCE230A9CDAA4E6725D67 /* Pods-POI Locator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-POI Locator.release.xcconfig"; path = "Pods/Target Support Files/Pods-POI Locator/Pods-POI Locator.release.xcconfig"; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				34DC3EE11D70237400CD4254 /* GoogleMapsConstants.swift */,
+				34DC3EF51D71CAE000CD4254 /* GoogleMapsClient.swift */,
 			);
 			name = GoogleMaps;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 				34DC3EE21D70237400CD4254 /* GoogleMapsConstants.swift in Sources */,
 				34DC3EF41D71A11600CD4254 /* HelperViewController.swift in Sources */,
 				34DC3EF01D704CD600CD4254 /* GMapsViewController.swift in Sources */,
+				34DC3EF61D71CAE000CD4254 /* GoogleMapsClient.swift in Sources */,
 				34DC3EF21D704D4B00CD4254 /* SearchResultsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

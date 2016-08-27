@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rCW-HM-mwy">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -15,13 +15,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCell" id="0UB-9O-djE">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCell" id="0UB-9O-djE">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0UB-9O-djE" id="P8h-IN-5KO">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vT8-Zw-ubS">
+                                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="widthClass=compact" fixedFrame="YES">
+                                                <rect key="frame" x="36" y="11" width="42" height="21"/>
+                                            </variation>
+                                        </label>
+                                    </subviews>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="vT8-Zw-ubS"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="widthClass=compact">
+                                        <mask key="subviews">
+                                            <include reference="vT8-Zw-ubS"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" staticText="YES"/>
+                                </accessibility>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -33,7 +57,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mbE-Tv-Xbb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2085" y="401"/>
+            <point key="canvasLocation" x="2037" y="-448"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="2UJ-zn-fgA">
@@ -53,23 +77,52 @@
             </objects>
             <point key="canvasLocation" x="-411" y="213"/>
         </scene>
-        <!--Map-->
+        <!--Maps View Controller-->
         <scene sceneID="O5n-ht-s1T">
             <objects>
-                <viewController id="Wxv-nL-ZV5" sceneMemberID="viewController">
+                <viewController id="Wxv-nL-ZV5" customClass="GMapsViewController" customModule="POI_Locator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oRX-Bs-6ZA"/>
                         <viewControllerLayoutGuide type="bottom" id="Fz0-wb-2zM"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="2aW-LF-56c">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kdE-Fe-4CW" userLabel="GMap View" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="400" height="551"/>
+                                </variation>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="kdE-Fe-4CW"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="kdE-Fe-4CW"/>
+                            </mask>
+                        </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" image="map" id="3lL-Ru-fgs" userLabel="Map"/>
+                    <navigationItem key="navigationItem" id="PlM-P2-KsQ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="dtH-2E-9oT">
+                            <connections>
+                                <action selector="searchAddress:" destination="Wxv-nL-ZV5" id="Pbe-lB-yrU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="kdE-Fe-4CW" id="XjC-Op-iCS"/>
+                        <segue destination="zKY-Dq-Q9G" kind="presentation" identifier="CategorySegue" id="gen-Sv-SYb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HBh-8r-x95" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-411" y="-448"/>
+            <point key="canvasLocation" x="507" y="-448"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="20G-dT-JLF">
@@ -81,7 +134,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Wxv-nL-ZV5" kind="relationship" relationship="viewControllers" id="gYj-Qs-UWY"/>
+                        <segue destination="pdk-yY-LdW" kind="relationship" relationship="viewControllers" id="gYj-Qs-UWY"/>
                         <segue destination="x26-Q9-aID" kind="relationship" relationship="viewControllers" id="xow-3e-b6s"/>
                     </connections>
                 </tabBarController>
@@ -133,7 +186,26 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qoj-1E-xhf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1266" y="401"/>
+            <point key="canvasLocation" x="1312.5" y="-448"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="V8A-h6-QfN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pdk-yY-LdW" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Map" image="map" id="3lL-Ru-fgs" userLabel="Map"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lpq-ZG-12V">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Wxv-nL-ZV5" kind="relationship" relationship="rootViewController" id="iGb-tz-MsE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M3K-4a-dYC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-411" y="-448"/>
         </scene>
     </scenes>
     <resources>

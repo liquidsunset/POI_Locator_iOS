@@ -9,12 +9,18 @@
 import Foundation
 import UIKit
 
+protocol CategoryTableViewControllerDelegate: class {
+    func categoryController(selectedCategories categories: [String])
+}
+
 class CategoryTableViewController: UITableViewController {
     
     let categoryTypesDic = ["bakery":"Bakery", "bar":"Bar", "cafe":"Cafe", "grocery_or_supermarket":"Supermarket", "restaurant":"Restaurant"]
     var sortedKeys: [String] {
         return categoryTypesDic.keys.sort()
     }
+    
+    weak var delegate: CategoryTableViewControllerDelegate!
     
     var selectedCategories: [String]!
     
