@@ -7,13 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C4BC222D2C25F8547794905 /* libPods-POI Locator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A482562B37593C86FAD5B7 /* libPods-POI Locator.a */; };
 		3452F0271D701950002CEFB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3452F0261D701950002CEFB3 /* AppDelegate.swift */; };
-		3452F0291D701950002CEFB3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3452F0281D701950002CEFB3 /* ViewController.swift */; };
 		3452F02C1D701950002CEFB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3452F02A1D701950002CEFB3 /* Main.storyboard */; };
 		3452F02E1D701950002CEFB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3452F02D1D701950002CEFB3 /* Assets.xcassets */; };
 		3452F0311D701950002CEFB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3452F02F1D701950002CEFB3 /* LaunchScreen.storyboard */; };
 		3452F03C1D701950002CEFB3 /* POI_LocatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3452F03B1D701950002CEFB3 /* POI_LocatorTests.swift */; };
 		3452F0471D701950002CEFB3 /* POI_LocatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3452F0461D701950002CEFB3 /* POI_LocatorUITests.swift */; };
+		3452F05B1D701D10002CEFB3 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 3452F05A1D701D10002CEFB3 /* Podfile */; };
+		34DC3EDF1D7022A500CD4254 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DC3EDE1D7022A500CD4254 /* CoreDataStack.swift */; };
+		34DC3EE21D70237400CD4254 /* GoogleMapsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DC3EE11D70237400CD4254 /* GoogleMapsConstants.swift */; };
+		34DC3EE51D70247300CD4254 /* FlickrClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DC3EE41D70247300CD4254 /* FlickrClient.swift */; };
+		34DC3EE71D70249C00CD4254 /* FlickrConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DC3EE61D70249C00CD4254 /* FlickrConstants.swift */; };
+		34DC3EE91D70262C00CD4254 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DC3EE81D70262C00CD4254 /* Utility.swift */; };
+		34DC3EEC1D70326F00CD4254 /* POILocator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 34DC3EEA1D70326F00CD4254 /* POILocator.xcdatamodeld */; };
+		34DC3EEE1D703FE500CD4254 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DC3EED1D703FE500CD4254 /* CategoryTableViewController.swift */; };
+		34DC3EF01D704CD600CD4254 /* GMapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DC3EEF1D704CD600CD4254 /* GMapsViewController.swift */; };
+		34DC3EF21D704D4B00CD4254 /* SearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DC3EF11D704D4B00CD4254 /* SearchResultsController.swift */; };
+		34DC3EF41D71A11600CD4254 /* HelperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DC3EF31D71A11600CD4254 /* HelperViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +47,6 @@
 /* Begin PBXFileReference section */
 		3452F0231D701950002CEFB3 /* POI Locator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "POI Locator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3452F0261D701950002CEFB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3452F0281D701950002CEFB3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3452F02B1D701950002CEFB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3452F02D1D701950002CEFB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3452F0301D701950002CEFB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +57,20 @@
 		3452F0421D701950002CEFB3 /* POI LocatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "POI LocatorUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3452F0461D701950002CEFB3 /* POI_LocatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POI_LocatorUITests.swift; sourceTree = "<group>"; };
 		3452F0481D701950002CEFB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3452F05A1D701D10002CEFB3 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		34DC3EDE1D7022A500CD4254 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		34DC3EE11D70237400CD4254 /* GoogleMapsConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMapsConstants.swift; sourceTree = "<group>"; };
+		34DC3EE41D70247300CD4254 /* FlickrClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrClient.swift; sourceTree = "<group>"; };
+		34DC3EE61D70249C00CD4254 /* FlickrConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrConstants.swift; sourceTree = "<group>"; };
+		34DC3EE81D70262C00CD4254 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		34DC3EEB1D70326F00CD4254 /* POILocator.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = POILocator.xcdatamodel; sourceTree = "<group>"; };
+		34DC3EED1D703FE500CD4254 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
+		34DC3EEF1D704CD600CD4254 /* GMapsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GMapsViewController.swift; sourceTree = "<group>"; };
+		34DC3EF11D704D4B00CD4254 /* SearchResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsController.swift; sourceTree = "<group>"; };
+		34DC3EF31D71A11600CD4254 /* HelperViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperViewController.swift; sourceTree = "<group>"; };
+		39A482562B37593C86FAD5B7 /* libPods-POI Locator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-POI Locator.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B358D6A3072C2F664BA8FCA9 /* Pods-POI Locator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-POI Locator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-POI Locator/Pods-POI Locator.debug.xcconfig"; sourceTree = "<group>"; };
+		B9DFCE230A9CDAA4E6725D67 /* Pods-POI Locator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-POI Locator.release.xcconfig"; path = "Pods/Target Support Files/Pods-POI Locator/Pods-POI Locator.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C4BC222D2C25F8547794905 /* libPods-POI Locator.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,13 +99,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		12F3EB8C9F4DCE6B0D438213 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B358D6A3072C2F664BA8FCA9 /* Pods-POI Locator.debug.xcconfig */,
+				B9DFCE230A9CDAA4E6725D67 /* Pods-POI Locator.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		1E87EF77B475DC2DC94B3175 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				39A482562B37593C86FAD5B7 /* libPods-POI Locator.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3452F01A1D701950002CEFB3 = {
 			isa = PBXGroup;
 			children = (
+				3452F05A1D701D10002CEFB3 /* Podfile */,
 				3452F0251D701950002CEFB3 /* POI Locator */,
 				3452F03A1D701950002CEFB3 /* POI LocatorTests */,
 				3452F0451D701950002CEFB3 /* POI LocatorUITests */,
 				3452F0241D701950002CEFB3 /* Products */,
+				12F3EB8C9F4DCE6B0D438213 /* Pods */,
+				1E87EF77B475DC2DC94B3175 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,8 +142,10 @@
 		3452F0251D701950002CEFB3 /* POI Locator */ = {
 			isa = PBXGroup;
 			children = (
+				3452F0571D7019E5002CEFB3 /* Model */,
+				3452F0561D7019DB002CEFB3 /* View */,
+				3452F0551D7019D4002CEFB3 /* Controller */,
 				3452F0261D701950002CEFB3 /* AppDelegate.swift */,
-				3452F0281D701950002CEFB3 /* ViewController.swift */,
 				3452F02A1D701950002CEFB3 /* Main.storyboard */,
 				3452F02D1D701950002CEFB3 /* Assets.xcassets */,
 				3452F02F1D701950002CEFB3 /* LaunchScreen.storyboard */,
@@ -125,6 +172,69 @@
 			path = "POI LocatorUITests";
 			sourceTree = "<group>";
 		};
+		3452F0551D7019D4002CEFB3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				34DC3EED1D703FE500CD4254 /* CategoryTableViewController.swift */,
+				34DC3EEF1D704CD600CD4254 /* GMapsViewController.swift */,
+				34DC3EF11D704D4B00CD4254 /* SearchResultsController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		3452F0561D7019DB002CEFB3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				34DC3EF31D71A11600CD4254 /* HelperViewController.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		3452F0571D7019E5002CEFB3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3452F0591D7019FD002CEFB3 /* Clients */,
+				3452F0581D7019EA002CEFB3 /* CoreData */,
+				34DC3EE81D70262C00CD4254 /* Utility.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		3452F0581D7019EA002CEFB3 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				34DC3EDE1D7022A500CD4254 /* CoreDataStack.swift */,
+				34DC3EEA1D70326F00CD4254 /* POILocator.xcdatamodeld */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		3452F0591D7019FD002CEFB3 /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				34DC3EE31D70245B00CD4254 /* Flickr */,
+				34DC3EE01D70235D00CD4254 /* GoogleMaps */,
+			);
+			name = Clients;
+			sourceTree = "<group>";
+		};
+		34DC3EE01D70235D00CD4254 /* GoogleMaps */ = {
+			isa = PBXGroup;
+			children = (
+				34DC3EE11D70237400CD4254 /* GoogleMapsConstants.swift */,
+			);
+			name = GoogleMaps;
+			sourceTree = "<group>";
+		};
+		34DC3EE31D70245B00CD4254 /* Flickr */ = {
+			isa = PBXGroup;
+			children = (
+				34DC3EE41D70247300CD4254 /* FlickrClient.swift */,
+				34DC3EE61D70249C00CD4254 /* FlickrConstants.swift */,
+			);
+			name = Flickr;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +242,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3452F04B1D701950002CEFB3 /* Build configuration list for PBXNativeTarget "POI Locator" */;
 			buildPhases = (
+				4ADB4260FAD04ABAA8ADBBEA /* [CP] Check Pods Manifest.lock */,
 				3452F01F1D701950002CEFB3 /* Sources */,
 				3452F0201D701950002CEFB3 /* Frameworks */,
 				3452F0211D701950002CEFB3 /* Resources */,
+				3AD53E6591838EEC10F6314E /* [CP] Embed Pods Frameworks */,
+				F7FFC6145DC5BBDB5E2DB593 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -231,6 +344,7 @@
 			files = (
 				3452F0311D701950002CEFB3 /* LaunchScreen.storyboard in Resources */,
 				3452F02E1D701950002CEFB3 /* Assets.xcassets in Resources */,
+				3452F05B1D701D10002CEFB3 /* Podfile in Resources */,
 				3452F02C1D701950002CEFB3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,13 +365,70 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3AD53E6591838EEC10F6314E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-POI Locator/Pods-POI Locator-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4ADB4260FAD04ABAA8ADBBEA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F7FFC6145DC5BBDB5E2DB593 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-POI Locator/Pods-POI Locator-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3452F01F1D701950002CEFB3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3452F0291D701950002CEFB3 /* ViewController.swift in Sources */,
+				34DC3EE91D70262C00CD4254 /* Utility.swift in Sources */,
+				34DC3EDF1D7022A500CD4254 /* CoreDataStack.swift in Sources */,
+				34DC3EE51D70247300CD4254 /* FlickrClient.swift in Sources */,
+				34DC3EEC1D70326F00CD4254 /* POILocator.xcdatamodeld in Sources */,
+				34DC3EEE1D703FE500CD4254 /* CategoryTableViewController.swift in Sources */,
 				3452F0271D701950002CEFB3 /* AppDelegate.swift in Sources */,
+				34DC3EE71D70249C00CD4254 /* FlickrConstants.swift in Sources */,
+				34DC3EE21D70237400CD4254 /* GoogleMapsConstants.swift in Sources */,
+				34DC3EF41D71A11600CD4254 /* HelperViewController.swift in Sources */,
+				34DC3EF01D704CD600CD4254 /* GMapsViewController.swift in Sources */,
+				34DC3EF21D704D4B00CD4254 /* SearchResultsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,6 +568,7 @@
 		};
 		3452F04C1D701950002CEFB3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B358D6A3072C2F664BA8FCA9 /* Pods-POI Locator.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "POI Locator/Info.plist";
@@ -408,6 +580,7 @@
 		};
 		3452F04D1D701950002CEFB3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9DFCE230A9CDAA4E6725D67 /* Pods-POI Locator.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "POI Locator/Info.plist";
@@ -482,6 +655,7 @@
 				3452F04D1D701950002CEFB3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3452F04E1D701950002CEFB3 /* Build configuration list for PBXNativeTarget "POI LocatorTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +664,7 @@
 				3452F0501D701950002CEFB3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3452F0511D701950002CEFB3 /* Build configuration list for PBXNativeTarget "POI LocatorUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,8 +673,22 @@
 				3452F0531D701950002CEFB3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		34DC3EEA1D70326F00CD4254 /* POILocator.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				34DC3EEB1D70326F00CD4254 /* POILocator.xcdatamodel */,
+			);
+			currentVersion = 34DC3EEB1D70326F00CD4254 /* POILocator.xcdatamodel */;
+			path = POILocator.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3452F01B1D701950002CEFB3 /* Project object */;
 }
