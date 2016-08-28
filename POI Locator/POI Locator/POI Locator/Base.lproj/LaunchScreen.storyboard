@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,12 +17,114 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="launchimage" translatesAutoresizingMaskIntoConstraints="NO" id="SUH-Hf-3tc">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="POI Locator" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8LA-uU-Tp8">
+                                <rect key="frame" x="204" y="176" width="192" height="47"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="C0G-q5-cU9"/>
+                                    <constraint firstAttribute="width" constant="192" id="D1H-k1-AJJ"/>
+                                    <constraint firstAttribute="height" constant="47" id="W4m-ws-rNS"/>
+                                    <constraint firstAttribute="width" constant="158" id="cpw-Ex-zWy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="W4m-ws-rNS"/>
+                                        <exclude reference="cpw-Ex-zWy"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="C0G-q5-cU9"/>
+                                        <exclude reference="D1H-k1-AJJ"/>
+                                        <include reference="W4m-ws-rNS"/>
+                                        <include reference="cpw-Ex-zWy"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Copyright © 2016 Daniel Brand. All rights reserved." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZ9-mp-0Ak">
+                                <rect key="frame" x="99" y="552" width="403" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="Yrl-Zx-eqK"/>
+                                    <constraint firstAttribute="height" constant="28" id="rYY-nP-NKe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Yrl-Zx-eqK"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Yrl-Zx-eqK"/>
+                                        <exclude reference="rYY-nP-NKe"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bZ9-mp-0Ak" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="30" id="1KS-jo-gOg"/>
+                            <constraint firstItem="SUH-Hf-3tc" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="UnX-d1-cl7"/>
+                            <constraint firstItem="8LA-uU-Tp8" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="129" id="X7K-ht-nKQ"/>
+                            <constraint firstItem="bZ9-mp-0Ak" firstAttribute="centerX" secondItem="SUH-Hf-3tc" secondAttribute="centerX" id="YcG-1S-s8N"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="bZ9-mp-0Ak" secondAttribute="bottom" constant="39" id="Yjy-hM-UMH"/>
+                            <constraint firstItem="SUH-Hf-3tc" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="fnN-eA-7nD"/>
+                            <constraint firstItem="SUH-Hf-3tc" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="gKQ-Yb-f9e"/>
+                            <constraint firstAttribute="trailing" secondItem="SUH-Hf-3tc" secondAttribute="trailing" id="qod-22-huf"/>
+                            <constraint firstItem="bZ9-mp-0Ak" firstAttribute="centerX" secondItem="8LA-uU-Tp8" secondAttribute="centerX" id="wi6-ee-0Bu"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="SUH-Hf-3tc"/>
+                                <exclude reference="8LA-uU-Tp8"/>
+                                <exclude reference="bZ9-mp-0Ak"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="UnX-d1-cl7"/>
+                                <exclude reference="fnN-eA-7nD"/>
+                                <exclude reference="gKQ-Yb-f9e"/>
+                                <exclude reference="qod-22-huf"/>
+                                <exclude reference="X7K-ht-nKQ"/>
+                                <exclude reference="1KS-jo-gOg"/>
+                                <exclude reference="YcG-1S-s8N"/>
+                                <exclude reference="wi6-ee-0Bu"/>
+                                <exclude reference="Yjy-hM-UMH"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="SUH-Hf-3tc"/>
+                                <include reference="8LA-uU-Tp8"/>
+                                <include reference="bZ9-mp-0Ak"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="UnX-d1-cl7"/>
+                                <include reference="fnN-eA-7nD"/>
+                                <include reference="gKQ-Yb-f9e"/>
+                                <include reference="qod-22-huf"/>
+                                <include reference="X7K-ht-nKQ"/>
+                                <include reference="1KS-jo-gOg"/>
+                                <include reference="YcG-1S-s8N"/>
+                                <include reference="wi6-ee-0Bu"/>
+                                <include reference="Yjy-hM-UMH"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.5" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="launchimage" width="768" height="1024"/>
+    </resources>
 </document>

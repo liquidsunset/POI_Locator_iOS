@@ -57,6 +57,12 @@ class GoogleMapsClient {
             }
             
             let json = JSON(data: data!)
+            
+            guard let status = json[JsonResponseKeys.Status].string where status == JsonResponseValues.JsonOKStatus else {
+                completionHandler(lat: nil, lon: nil, errorMessage: "Error getting the data")
+                return
+            }
+            
             let lat = json[JsonResponseKeys.Results][0][JsonResponseKeys.Geometry][JsonResponseKeys.Location][JsonResponseKeys.Lat].doubleValue
             let lon = json[JsonResponseKeys.Results][0][JsonResponseKeys.Geometry][JsonResponseKeys.Location][JsonResponseKeys.Lng].doubleValue
             
