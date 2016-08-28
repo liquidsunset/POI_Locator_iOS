@@ -24,7 +24,7 @@ class GoogleMapsClient {
                 completionHandler(result: nil, errorMessage: (error?.localizedDescription)!)
                 return
             }
-            
+
             var resultsArray = [String]()
             
             for result in results! {

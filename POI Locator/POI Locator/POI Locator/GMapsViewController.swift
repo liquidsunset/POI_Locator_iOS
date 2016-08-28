@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import GooglePlaces
 import GoogleMaps
 
 class GMapsViewController: UIViewController, SetMapPos {
@@ -17,12 +16,18 @@ class GMapsViewController: UIViewController, SetMapPos {
     var searchResultController: SearchResultsController!
     var resultsArray = [String]()
     var selectedCategories: [String]!
+    let locationManager = CLLocationManager()
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         searchResultController = SearchResultsController()
         searchResultController.delegate = self
+        mapView.delegate = self
         getSavedCategories()
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
     }
+    
+    
     
     func setLatLon(latitude: Double, longitude: Double, title: String) {
         performUpdatesOnMain() {
@@ -115,5 +120,29 @@ extension GMapsViewController: UISearchBarDelegate {
     }
 }
 
+extension GMapsViewController: GMSMapViewDelegate {
+    func mapView(mapView: GMSMapView, didTapMarker marker: GMSMarker) -> Bool {
+        let placeMarker = marker as! PlaceMarker
+        return true
+    }
+}
+
+extension GMapsViewController: CLLocationManagerDelegate {
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        if status == .AuthorizedWhenInUse {
+            locationManager.startUpdatingLocation()
+            mapView.myLocationEnabled = true
+            mapView.settings.myLocationButton = true
+        }
+    }
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first {
+            mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
+            locationManager.stopUpdatingLocation()
+            getPlaces()
+        }
+    }
+}
 
 
