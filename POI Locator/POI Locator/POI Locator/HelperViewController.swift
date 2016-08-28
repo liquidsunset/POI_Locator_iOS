@@ -26,8 +26,4 @@ extension UIViewController {
             updates()
         }
     }
-    
-    struct Constants {
-        static let categoryTypesDic = ["bakery":"Bakery", "museum": "Museum","bar":"Bar", "night_club": "Night Club", "cafe":"Cafe", "grocery_or_supermarket":"Supermarket", "library":"Library", "restaurant":"Restaurant", "church": "Church", "hospital": "Hospital", "police": "Police"]
-    }
 }

@@ -8,14 +8,14 @@
 
 import UIKit
 import GoogleMaps
-import GooglePlacePicker
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     let stack = CoreDataStack(modelName: "POILocator")!
-    let googleMapsAPIKey = "AIzaSyCa2HT-8kPh2Exm0gx0mJG-YGTWhtBEdjE"
+    let googleMapsAPIKey = "AIzaSyCG0V0sKWvU4jrXLgkX74mshykyJjloTHQ"
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.

@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import GooglePlaces
 import GoogleMaps
 
 class GMapsViewController: UIViewController, SetMapPos {
@@ -28,6 +29,7 @@ class GMapsViewController: UIViewController, SetMapPos {
             let pos = CLLocationCoordinate2DMake(latitude, longitude)
             let marker = GMSMarker(position: pos)
             marker.title = title
+            marker.appearAnimation = kGMSMarkerAnimationPop
             
             let camera = GMSCameraPosition.cameraWithLatitude(latitude, longitude: longitude, zoom: 15)
             self.mapView.camera = camera
@@ -42,9 +44,32 @@ class GMapsViewController: UIViewController, SetMapPos {
         presentViewController(searchController, animated: true, completion: nil)
     }
     
+    @IBAction func search(sender: AnyObject) {
+        getPlaces()
+    }
+    
     func getSavedCategories() {
         let defaults = NSUserDefaults.standardUserDefaults()
         selectedCategories = defaults.objectForKey("savedCategories") as? [String] ?? [String]()
+    }
+    
+    func getPlaces() {
+        mapView.clear()
+        GoogleMapsClient.sharedInstance.getNearbyPlaces(mapView.camera.target, categories: selectedCategories){
+         (places, error) in
+            
+            guard (error == nil) else {
+                self.performUpdatesOnMain() {
+                    self.showAlertMessage("Address-Error", message: error)
+                }
+                return
+            }
+
+            for place in places{
+                let marker = PlaceMarker(place: place)
+                marker.map = self.mapView
+                }}
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

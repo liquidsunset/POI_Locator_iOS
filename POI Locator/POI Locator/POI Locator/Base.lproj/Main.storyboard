@@ -103,7 +103,11 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="POI Locator" id="PlM-P2-KsQ">
-                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="6Xe-Ds-sNg"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="6Xe-Ds-sNg">
+                            <connections>
+                                <action selector="search:" destination="Wxv-nL-ZV5" id="n8K-jS-PVh"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="search" id="dtH-2E-9oT">
                                 <connections>
