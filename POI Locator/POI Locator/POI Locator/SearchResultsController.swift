@@ -14,35 +14,35 @@ protocol SetMapPos {
 }
 
 class SearchResultsController: UITableViewController {
-    
+
     var results: [String]!
     var delegate: SetMapPos!
-    
+
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         results = Array()
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "resultIdentifier")
     }
-    
+
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return results.count
     }
-    
+
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("resultIdentifier", forIndexPath: indexPath)
         cell.textLabel?.text = results[indexPath.row]
         return cell
     }
-    
+
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
-    
+
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+
         GoogleMapsClient.sharedInstance.getLatLongForAddress(results[indexPath.row]) {
             (lat, lon, error) in
-            
+
             guard (error == nil) else {
                 self.performUpdatesOnMain() {
                     self.showAlertMessage("Address-Error", message: error)
@@ -53,13 +53,13 @@ class SearchResultsController: UITableViewController {
             self.dismissViewControllerAnimated(true, completion: nil)
             self.delegate.setLatLon(lat, longitude: lon, title: self.results[indexPath.row])
         }
-        
+
     }
-    
+
     func loadResults(searchResult: [String]) {
         results = searchResult
         tableView.reloadData()
     }
-    
-    
+
+
 }

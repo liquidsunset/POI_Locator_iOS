@@ -30,8 +30,6 @@
 	<array>
 		<string>armv7</string>
 	</array>
-	<key>NSLo</key>
-	<string></string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Lala</string>
 	<key>UISupportedInterfaceOrientations</key>

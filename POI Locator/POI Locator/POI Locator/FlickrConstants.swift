@@ -9,16 +9,16 @@
 import Foundation
 
 extension FlickrClient {
-    
+
     struct Constants {
         static let BaseUrlSecure = "https://api.flickr.com/services/rest/"
         static let FlickrAPIKey = "f19e8bfcddc7e1f34f4779769e7e2cc4"
     }
-    
+
     struct Methods {
         static let FlickrPhotoSearch = "flickr.photos.search"
     }
-    
+
     struct URLParameterKeys {
         static let APIKey = "api_key"
         static let Method = "method"
@@ -32,7 +32,7 @@ extension FlickrClient {
         static let Format = "format"
         static let Page = "page"
     }
-    
+
     struct URLParameterValues {
         static let ResponseFormat = "json"
         static let NOJsonCallback = "1"
@@ -43,7 +43,7 @@ extension FlickrClient {
         static let MediumURL = "url_m"
         static let JsonFormat = "json"
     }
-    
+
     struct JsonResponseKeys {
         static let Status = "stat"
         static let Photos = "photos"
@@ -53,9 +53,9 @@ extension FlickrClient {
         static let Pages = "pages"
         static let Page = "page"
     }
-    
+
     struct JsonResponseValues {
         static let JsonOKStatus = "ok"
     }
-    
+
 }

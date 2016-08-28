@@ -18,7 +18,7 @@ class Place {
     let vicinity: String
     var photoRef: String?
     let placeId: String
-    
+
     init(position: CLLocationCoordinate2D, category: String, name: String, id: String, openNow: Bool?, vicinity: String, photoRef: String?, placeId: String) {
         self.position = position
         self.category = category

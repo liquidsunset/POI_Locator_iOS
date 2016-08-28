@@ -9,16 +9,16 @@
 import Foundation
 
 extension GoogleMapsClient {
-    
+
     struct Constants {
         static let BaseUrlSecure = "https://maps.googleapis.com/maps/api/"
     }
-    
+
     struct Methods {
         static let GeocodeSearch = "geocode/json"
         static let NearBySearch = "place/nearbysearch/json"
     }
-    
+
     struct URLParameterKeys {
         static let Address = "address"
         static let Radius = "radius"
@@ -27,13 +27,13 @@ extension GoogleMapsClient {
         static let Categories = "types"
         static let Key = "key"
     }
-    
+
     struct URLParametersValues {
         static let RadiusValue = 1500
         static let ProminenceRank = "prominence"
         static let KeyValue = "AIzaSyCG0V0sKWvU4jrXLgkX74mshykyJjloTHQ"
     }
-    
+
     struct JsonResponseKeys {
         static let Status = "status"
         static let Geometry = "geometry"
@@ -49,9 +49,10 @@ extension GoogleMapsClient {
         static let PhotosRef = "photos_reference"
         static let Categories = "types"
     }
-    
+
     struct JsonResponseValues {
         static let JsonOKStatus = "OK"
     }
+
 }
 

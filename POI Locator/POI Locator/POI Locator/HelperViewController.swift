@@ -17,10 +17,10 @@ extension UIViewController {
             alertController.dismissViewControllerAnimated(true, completion: nil)
         })
         alertController.addAction(ok)
-        
+
         presentViewController(alertController, animated: true, completion: nil)
     }
-    
+
     func performUpdatesOnMain(updates: () -> Void) {
         dispatch_async(dispatch_get_main_queue()) {
             updates()
