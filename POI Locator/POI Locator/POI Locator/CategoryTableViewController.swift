@@ -9,20 +9,24 @@
 import Foundation
 import UIKit
 
-protocol CategoryTableViewControllerDelegate: class {
-    func categoryController(selectedCategories categories: [String])
-}
 
 class CategoryTableViewController: UITableViewController {
     
-    let categoryTypesDic = ["bakery":"Bakery", "bar":"Bar", "cafe":"Cafe", "grocery_or_supermarket":"Supermarket", "restaurant":"Restaurant"]
+    let categoryTypesDic = ["bakery":"Bakery", "museum": "Museum","bar":"Bar", "night_club": "Night Club", "cafe":"Cafe", "grocery_or_supermarket":"Supermarket", "library":"Library", "restaurant":"Restaurant", "church": "Church", "hospital": "Hospital", "police": "Police"]
+    
     var sortedKeys: [String] {
         return categoryTypesDic.keys.sort()
     }
     
-    weak var delegate: CategoryTableViewControllerDelegate!
     
     var selectedCategories: [String]!
+    
+    @IBAction func saveCategories(sender: AnyObject) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(selectedCategories, forKey: "savedCategories")
+        defaults.synchronize()
+        dismissViewControllerAnimated(true, completion: nil)
+    }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return categoryTypesDic.count
@@ -34,7 +38,13 @@ class CategoryTableViewController: UITableViewController {
         let type = categoryTypesDic[key]
         
         cell.textLabel?.text = type
-        cell.imageView?.image = UIImage(named: key)
+        
+        if let imageIcon = UIImage(named: key) {
+          cell.imageView?.image = imageIcon
+        } else {
+            cell.imageView?.image = UIImage(named: "placeholder")
+        }
+        
         cell.accessoryType = (selectedCategories).contains(key) ? .Checkmark : .None
         
         return cell

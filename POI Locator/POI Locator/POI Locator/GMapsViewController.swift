@@ -10,17 +10,17 @@ import Foundation
 import UIKit
 import GoogleMaps
 
-class GMapsViewController: UIViewController, SetMapPos, CategoryTableViewControllerDelegate {
+class GMapsViewController: UIViewController, SetMapPos {
    
     @IBOutlet weak var mapView: GMSMapView!
     var searchResultController: SearchResultsController!
     var resultsArray = [String]()
-    var selectedCategories = ["bakery", "bar", "cafe", "grocery_or_supermarket", "restaurant"]
-    
+    var selectedCategories: [String]!
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         searchResultController = SearchResultsController()
         searchResultController.delegate = self
+        getSavedCategories()
     }
     
     func setLatLon(latitude: Double, longitude: Double, title: String) {
@@ -29,8 +29,10 @@ class GMapsViewController: UIViewController, SetMapPos, CategoryTableViewControl
             let marker = GMSMarker(position: pos)
             marker.title = title
             
-            let camera = GMSCameraPosition.cameraWithLatitude(latitude, longitude: longitude, zoom: 10)
-            
+            let camera = GMSCameraPosition.cameraWithLatitude(latitude, longitude: longitude, zoom: 15)
+            self.mapView.camera = camera
+            marker.map = self.mapView
+            self.mapView.selectedMarker = marker
         }
     }
     
@@ -40,10 +42,9 @@ class GMapsViewController: UIViewController, SetMapPos, CategoryTableViewControl
         presentViewController(searchController, animated: true, completion: nil)
     }
     
-    func categoryController(selectedCategories categories: [String]) {
-        selectedCategories = categories
-        dismissViewControllerAnimated(true, completion: nil)
-        
+    func getSavedCategories() {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        selectedCategories = defaults.objectForKey("savedCategories") as? [String] ?? [String]()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -51,7 +52,6 @@ class GMapsViewController: UIViewController, SetMapPos, CategoryTableViewControl
             let navigationController = segue.destinationViewController as! UINavigationController
             let controller = navigationController.topViewController as! CategoryTableViewController
             controller.selectedCategories = selectedCategories
-            controller.delegate = self
         }
     }
 }
@@ -59,6 +59,12 @@ class GMapsViewController: UIViewController, SetMapPos, CategoryTableViewControl
 //SearchBar Stuff
 extension GMapsViewController: UISearchBarDelegate {
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        guard !searchText.isEmpty else {
+            resultsArray.removeAll()
+            searchResultController.loadResults(resultsArray)
+            return
+        }
         
         GoogleMapsClient.sharedInstance.getAutocompleteResults(searchText) {
             (results, error) in
@@ -75,6 +81,8 @@ extension GMapsViewController: UISearchBarDelegate {
             }
             
             self.performUpdatesOnMain() {
+                self.resultsArray.removeAll()
+                self.resultsArray = results
                 self.searchResultController.loadResults(results)
             }
         }

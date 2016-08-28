@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1C4BC222D2C25F8547794905 /* libPods-POI Locator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A482562B37593C86FAD5B7 /* libPods-POI Locator.a */; };
 		3452F0271D701950002CEFB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3452F0261D701950002CEFB3 /* AppDelegate.swift */; };
 		3452F02C1D701950002CEFB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3452F02A1D701950002CEFB3 /* Main.storyboard */; };
 		3452F02E1D701950002CEFB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3452F02D1D701950002CEFB3 /* Assets.xcassets */; };
@@ -26,6 +25,10 @@
 		34DC3EF21D704D4B00CD4254 /* SearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DC3EF11D704D4B00CD4254 /* SearchResultsController.swift */; };
 		34DC3EF41D71A11600CD4254 /* HelperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DC3EF31D71A11600CD4254 /* HelperViewController.swift */; };
 		34DC3EF61D71CAE000CD4254 /* GoogleMapsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DC3EF51D71CAE000CD4254 /* GoogleMapsClient.swift */; };
+		34DC3EFA1D72D46700CD4254 /* CustomCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DC3EF91D72D46700CD4254 /* CustomCollectionViewLayout.swift */; };
+		34DC3EFC1D72EF3B00CD4254 /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DC3EFB1D72EF3B00CD4254 /* PlaceDetailViewController.swift */; };
+		34DC3EFE1D73533100CD4254 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34DC3EFD1D73533100CD4254 /* SwiftyJSON.framework */; };
+		38E559831B7D2BBB87B613C2 /* Pods_POI_Locator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED5EFC1DA081FA0C4C16DD17 /* Pods_POI_Locator.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,9 +73,12 @@
 		34DC3EF11D704D4B00CD4254 /* SearchResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsController.swift; sourceTree = "<group>"; };
 		34DC3EF31D71A11600CD4254 /* HelperViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperViewController.swift; sourceTree = "<group>"; };
 		34DC3EF51D71CAE000CD4254 /* GoogleMapsClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMapsClient.swift; sourceTree = "<group>"; };
-		39A482562B37593C86FAD5B7 /* libPods-POI Locator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-POI Locator.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		34DC3EF91D72D46700CD4254 /* CustomCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewLayout.swift; sourceTree = "<group>"; };
+		34DC3EFB1D72EF3B00CD4254 /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewController.swift; sourceTree = "<group>"; };
+		34DC3EFD1D73533100CD4254 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../../../../../../../../Library/Developer/Xcode/DerivedData/POI_Locator-ekxyikhqcqcpgdgaeskdljzskeme/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		B358D6A3072C2F664BA8FCA9 /* Pods-POI Locator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-POI Locator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-POI Locator/Pods-POI Locator.debug.xcconfig"; sourceTree = "<group>"; };
 		B9DFCE230A9CDAA4E6725D67 /* Pods-POI Locator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-POI Locator.release.xcconfig"; path = "Pods/Target Support Files/Pods-POI Locator/Pods-POI Locator.release.xcconfig"; sourceTree = "<group>"; };
+		ED5EFC1DA081FA0C4C16DD17 /* Pods_POI_Locator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_POI_Locator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +86,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C4BC222D2C25F8547794905 /* libPods-POI Locator.a in Frameworks */,
+				38E559831B7D2BBB87B613C2 /* Pods_POI_Locator.framework in Frameworks */,
+				34DC3EFE1D73533100CD4254 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,7 +120,8 @@
 		1E87EF77B475DC2DC94B3175 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				39A482562B37593C86FAD5B7 /* libPods-POI Locator.a */,
+				34DC3EFD1D73533100CD4254 /* SwiftyJSON.framework */,
+				ED5EFC1DA081FA0C4C16DD17 /* Pods_POI_Locator.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -148,6 +156,7 @@
 				3452F0561D7019DB002CEFB3 /* View */,
 				3452F0551D7019D4002CEFB3 /* Controller */,
 				3452F0261D701950002CEFB3 /* AppDelegate.swift */,
+				34DC3EF31D71A11600CD4254 /* HelperViewController.swift */,
 				3452F02A1D701950002CEFB3 /* Main.storyboard */,
 				3452F02D1D701950002CEFB3 /* Assets.xcassets */,
 				3452F02F1D701950002CEFB3 /* LaunchScreen.storyboard */,
@@ -180,6 +189,7 @@
 				34DC3EED1D703FE500CD4254 /* CategoryTableViewController.swift */,
 				34DC3EEF1D704CD600CD4254 /* GMapsViewController.swift */,
 				34DC3EF11D704D4B00CD4254 /* SearchResultsController.swift */,
+				34DC3EFB1D72EF3B00CD4254 /* PlaceDetailViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -187,7 +197,7 @@
 		3452F0561D7019DB002CEFB3 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				34DC3EF31D71A11600CD4254 /* HelperViewController.swift */,
+				34DC3EF91D72D46700CD4254 /* CustomCollectionViewLayout.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -430,8 +440,10 @@
 				34DC3EE71D70249C00CD4254 /* FlickrConstants.swift in Sources */,
 				34DC3EE21D70237400CD4254 /* GoogleMapsConstants.swift in Sources */,
 				34DC3EF41D71A11600CD4254 /* HelperViewController.swift in Sources */,
+				34DC3EFC1D72EF3B00CD4254 /* PlaceDetailViewController.swift in Sources */,
 				34DC3EF01D704CD600CD4254 /* GMapsViewController.swift in Sources */,
 				34DC3EF61D71CAE000CD4254 /* GoogleMapsClient.swift in Sources */,
+				34DC3EFA1D72D46700CD4254 /* CustomCollectionViewLayout.swift in Sources */,
 				34DC3EF21D704D4B00CD4254 /* SearchResultsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

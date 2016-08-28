@@ -28,10 +28,6 @@ class SearchResultsController: UITableViewController {
         return results.count
     }
     
-    override func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return false
-    }
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("resultIdentifier", forIndexPath: indexPath)
         cell.textLabel?.text = results[indexPath.row]
@@ -44,8 +40,19 @@ class SearchResultsController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        dismissViewControllerAnimated(true, completion: nil)
-        
+        GoogleMapsClient.sharedInstance.getLatLongForAddress(results[indexPath.row]) {
+            (lat, lon, error) in
+            
+            guard (error == nil) else {
+                self.performUpdatesOnMain() {
+                    self.showAlertMessage("Address-Error", message: error)
+                }
+                self.dismissViewControllerAnimated(true, completion: nil)
+                return
+            }
+            self.dismissViewControllerAnimated(true, completion: nil)
+            self.delegate.setLatLon(lat, longitude: lon, title: self.results[indexPath.row])
+        }
         
     }
     

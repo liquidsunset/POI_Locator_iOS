@@ -8,6 +8,7 @@
 
 import Foundation
 import GooglePlacePicker
+import SwiftyJSON
 
 class GoogleMapsClient {
     
@@ -34,5 +35,42 @@ class GoogleMapsClient {
             completionHandler(result: resultsArray, errorMessage: nil)
         }
 
+    }
+    
+    func getLatLongForAddress(address: String, completionHandler: (lat: Double!, lon: Double!, errorMessage: String!) -> Void) {
+        
+        let urlParameters: [String:AnyObject] = [
+            URLParameterKeys.Address: address
+        ]
+        let urlString = Constants.BaseUrlSecure + Methods.GeocodeSearch + Utility.escapedParameters(urlParameters)
+        print(urlString)
+        let url = NSURL(string: urlString)
+        let request = NSMutableURLRequest(URL: url!)
+        
+        let session = NSURLSession.sharedSession()
+        let task = session.dataTaskWithRequest(request){
+            (data, response, error) in
+            
+            guard (error == nil) else {
+                completionHandler(lat: nil, lon: nil, errorMessage: error?.localizedDescription)
+                return
+            }
+            
+            let json = JSON(data: data!)
+            let lat = json[JsonResponseKeys.Results][0][JsonResponseKeys.Geometry][JsonResponseKeys.Location][JsonResponseKeys.Lat].doubleValue
+            let lon = json[JsonResponseKeys.Results][0][JsonResponseKeys.Geometry][JsonResponseKeys.Location][JsonResponseKeys.Lng].doubleValue
+            
+            completionHandler(lat: lat, lon: lon, errorMessage: nil)
+        }
+        
+        task.resume()
+    }
+    
+    func getNearbyPlaces() {
+        
+    }
+    
+    func getPictureForPlace() {
+        
     }
 }
