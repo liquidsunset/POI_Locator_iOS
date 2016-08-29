@@ -86,13 +86,6 @@ class GMapsViewController: UIViewController, SetMapPos {
             let controller = navigationController.topViewController as! CategoryTableViewController
             controller.selectedCategories = selectedCategories
         }
-        
-        if segue.identifier == "DetailSegue" {
-            let navigationController = segue.destinationViewController as! PlaceDetailViewController
-            tabBarController?.tabBar.hidden = true
-            let place = sender as! GoogleMapsPlace
-            navigationController.place = place
-        }
     }
 }
 
@@ -135,7 +128,9 @@ extension GMapsViewController: GMSMapViewDelegate {
     func mapView(mapView: GMSMapView, didTapMarker marker: GMSMarker) -> Bool {
         let placeMarker = marker as! GoogleMapsPlaceMarker
         let place = placeMarker.getPlace()
-        performSegueWithIdentifier("DetailSegue", sender: place)
+        let placeDetailVC = storyboard?.instantiateViewControllerWithIdentifier("PlaceDetailVC") as! PlaceDetailViewController
+        placeDetailVC.place = place
+        self.navigationController?.pushViewController(placeDetailVC, animated: true)
         return true
     }
 

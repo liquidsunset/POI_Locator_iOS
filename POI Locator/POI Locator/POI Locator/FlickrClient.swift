@@ -18,11 +18,11 @@ class FlickrClient {
     func getPictures(pageNumber: Int?, position: CLLocationCoordinate2D, completionHandler: (data: AnyObject?, errorMessage:String?) -> Void) {
         
         
-        let urlString = createFlickrUrlString(pageNumber, lat: position.latitude, lon: position.longitude)
+        let urlString = self.createFlickrUrlString(pageNumber, lat: position.latitude, lon: position.longitude)
         
         let url = NSURL(string: urlString)
         let request = NSMutableURLRequest(URL: url!)
-        print(urlString)
+
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) {
             data, response, error in
@@ -84,33 +84,6 @@ class FlickrClient {
             }
             
         }
-        
-        task.resume()
-        
-    }
-    
-    func loadImageFromUrl(url: String, completionHandler: (image:NSData!, errorMessage:String?) -> Void) {
-        let url = NSURL(string: url)
-        let request = NSURLRequest(URL: url!)
-        let session = NSURLSession.sharedSession()
-        
-        let task = session.dataTaskWithRequest(request) {
-            (data, response, error) in
-            
-            guard (error == nil) else {
-                completionHandler(image: nil, errorMessage: error?.localizedDescription)
-                return
-            }
-            
-            guard let data = data else {
-                completionHandler(image: nil, errorMessage: "Error Downloading Photo")
-                return
-            }
-            
-            completionHandler(image: data, errorMessage: nil)
-            
-        }
-        
         task.resume()
         
     }
