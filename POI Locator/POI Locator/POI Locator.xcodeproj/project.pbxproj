@@ -67,7 +67,7 @@
 		3452F0421D701950002CEFB3 /* POI LocatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "POI LocatorUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3452F0461D701950002CEFB3 /* POI_LocatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POI_LocatorUITests.swift; sourceTree = "<group>"; };
 		3452F0481D701950002CEFB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3452F05A1D701D10002CEFB3 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		3452F05A1D701D10002CEFB3 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		34DC3EDE1D7022A500CD4254 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		34DC3EE11D70237400CD4254 /* GoogleMapsConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMapsConstants.swift; sourceTree = "<group>"; };
 		34DC3EE41D70247300CD4254 /* FlickrClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrClient.swift; sourceTree = "<group>"; };

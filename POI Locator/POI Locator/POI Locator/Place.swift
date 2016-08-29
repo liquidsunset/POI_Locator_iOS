@@ -8,12 +8,13 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 
 class Place: NSManagedObject {
 
 
-    convenience init(latitude: Double, longitude: Double, address: String, name: String, category: String, context: NSManagedObjectContext) {
+    convenience init(latitude: Double, longitude: Double, address: String, name: String, category: String, image: UIImage, context: NSManagedObjectContext) {
         if let createEntity = NSEntityDescription.entityForName("Place", inManagedObjectContext: context) {
             self.init(entity: createEntity, insertIntoManagedObjectContext: context)
             self.latitude = latitude
@@ -21,6 +22,7 @@ class Place: NSManagedObject {
             self.address = address
             self.name = name
             self.category = category
+            self.image = UIImagePNGRepresentation(image)
         } else {
             fatalError("Unable to find Entity Name!")
         }

@@ -36,7 +36,7 @@ extension FlickrClient {
     struct URLParameterValues {
         static let ResponseFormat = "json"
         static let NOJsonCallback = "1"
-        static let Radius = "1"
+        static let Radius = "0.05"
         //in km
         static let PicsPerPage = "24"
         static let UseSafeSearch = "1"

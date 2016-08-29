@@ -22,11 +22,12 @@ class PlaceDetailViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
-
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-
+        activityIndicator.hidden = true
+        activityIndicator.stopAnimating()
         addressLabel.lineBreakMode = .ByWordWrapping
         addressLabel.numberOfLines = 2
         let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -73,18 +74,26 @@ class PlaceDetailViewController: UIViewController {
     }
 
     @IBAction func saveBookmark(sender: AnyObject) {
-        _ = Place(latitude: place.position.latitude, longitude: place.position.longitude, address: place.vicinity, name: place.name, category: place.category, context: stack.context)
+        _ = Place(latitude: place.position.latitude, longitude: place.position.longitude, address: place.vicinity, name: place.name, category: place.category, image: place.photo, context: stack.context)
         stack.save()
         navigationController!.popViewControllerAnimated(true)
     }
 
     func getImages() {
         photos.removeAll()
+
+        performUpdatesOnMain() {
+            self.activityIndicator.hidden = false
+            self.activityIndicator.startAnimating()
+        }
+
         FlickrClient.sharedInstance.getPictures(nil, position: place.position) {
             (data, error) in
 
             guard (error == nil) else {
                 self.performUpdatesOnMain() {
+                    self.activityIndicator.stopAnimating()
+                    self.activityIndicator.hidden = true
                     self.showAlertMessage("Photo-Error", message: error!)
                 }
                 return
@@ -97,14 +106,18 @@ class PlaceDetailViewController: UIViewController {
                     let imageDic = imageUrl as [String:AnyObject]
                     guard let imageURLString = imageDic[FlickrClient.JsonResponseKeys.MediumURL] as? String else {
                         self.showAlertMessage("Image-Erro", message: "No valid URL found")
+                        self.activityIndicator.stopAnimating()
+                        self.activityIndicator.hidden = true
                         return
                     }
                     let imageURL = NSURL(string: imageURLString)
                     let imageData = NSData(contentsOfURL: imageURL!)
-
                     self.photos.append(UIImage(data: imageData!)!)
+                    self.activityIndicator.stopAnimating()
+                    self.activityIndicator.hidden = true
                 }
             }
+
             self.performUpdatesOnMain() {
                 self.collectionView.reloadData()
             }
