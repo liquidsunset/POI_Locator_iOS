@@ -13,12 +13,15 @@ import GoogleMaps
 class GMapsViewController: UIViewController, SetMapPos {
 
     @IBOutlet weak var mapView: GMSMapView!
+    
     var searchResultController: SearchResultsController!
     var resultsArray = [String]()
     var selectedCategories: [String]!
     let locationManager = CLLocationManager()
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        tabBarController?.tabBar.hidden = false
         searchResultController = SearchResultsController()
         searchResultController.delegate = self
         mapView.delegate = self
@@ -35,7 +38,7 @@ class GMapsViewController: UIViewController, SetMapPos {
             marker.title = title
             marker.appearAnimation = kGMSMarkerAnimationPop
 
-            let camera = GMSCameraPosition.cameraWithLatitude(latitude, longitude: longitude, zoom: 15)
+            let camera = GMSCameraPosition.cameraWithLatitude(latitude, longitude: longitude, zoom: 5)
             self.mapView.camera = camera
             marker.map = self.mapView
             self.mapView.selectedMarker = marker
@@ -70,7 +73,7 @@ class GMapsViewController: UIViewController, SetMapPos {
             }
 
             for place in places {
-                let marker = PlaceMarker(place: place)
+                let marker = GoogleMapsPlaceMarker(place: place)
                 marker.map = self.mapView
             }
         }
@@ -82,6 +85,13 @@ class GMapsViewController: UIViewController, SetMapPos {
             let navigationController = segue.destinationViewController as! UINavigationController
             let controller = navigationController.topViewController as! CategoryTableViewController
             controller.selectedCategories = selectedCategories
+        }
+        
+        if segue.identifier == "DetailSegue" {
+            let navigationController = segue.destinationViewController as! PlaceDetailViewController
+            tabBarController?.tabBar.hidden = true
+            let place = sender as! GoogleMapsPlace
+            navigationController.place = place
         }
     }
 }
@@ -123,9 +133,12 @@ extension GMapsViewController: UISearchBarDelegate {
 
 extension GMapsViewController: GMSMapViewDelegate {
     func mapView(mapView: GMSMapView, didTapMarker marker: GMSMarker) -> Bool {
-        let placeMarker = marker as! PlaceMarker
+        let placeMarker = marker as! GoogleMapsPlaceMarker
+        let place = placeMarker.getPlace()
+        performSegueWithIdentifier("DetailSegue", sender: place)
         return true
     }
+
 }
 
 extension GMapsViewController: CLLocationManagerDelegate {
@@ -139,7 +152,7 @@ extension GMapsViewController: CLLocationManagerDelegate {
 
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
-            mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
+            mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 5, bearing: 0, viewingAngle: 0)
             locationManager.stopUpdatingLocation()
             getPlaces()
         }

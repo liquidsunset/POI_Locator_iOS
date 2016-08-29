@@ -70,7 +70,7 @@ class GoogleMapsClient {
         task.resume()
     }
 
-    func getNearbyPlaces(position: CLLocationCoordinate2D, categories: [String], completionHandler: (places:[Place]!, errorMessage:String!) -> Void) {
+    func getNearbyPlaces(position: CLLocationCoordinate2D, categories: [String], completionHandler: (places:[GoogleMapsPlace]!, errorMessage:String!) -> Void) {
 
         guard categories.count > 0 else {
             completionHandler(places: nil, errorMessage: "No Categories selected")
@@ -109,7 +109,7 @@ class GoogleMapsClient {
                 return
             }
 
-            var collectedPlaces = [Place]()
+            var collectedPlaces = [GoogleMapsPlace]()
             for (key: _, subJson) in json[JsonResponseKeys.Results] {
                 let lat = subJson[JsonResponseKeys.Geometry][JsonResponseKeys.Location][JsonResponseKeys.Lat].doubleValue
                 let lon = subJson[JsonResponseKeys.Geometry][JsonResponseKeys.Location][JsonResponseKeys.Lng].doubleValue
@@ -121,7 +121,7 @@ class GoogleMapsClient {
                 let vicinity = subJson[JsonResponseKeys.Vicinity].string
                 let photoRef = subJson[JsonResponseKeys.Photos][0][JsonResponseKeys.PhotosRef].string
                 let categorie = subJson[JsonResponseKeys.Categories][0].string
-                let place = Place(position: position, category: categorie!, name: name!, id: id!, openNow: nil, vicinity: vicinity!, photoRef: photoRef, placeId: placeId!)
+                let place = GoogleMapsPlace(position: position, category: categorie!, name: name!, id: id!, openNow: nil, vicinity: vicinity!, photoRef: photoRef, placeId: placeId!)
 
                 collectedPlaces.append(place)
             }

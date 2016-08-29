@@ -49,12 +49,15 @@
             <objects>
                 <tableViewController id="n2M-W3-osx" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="2Po-6t-nmB">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Ze5-C2-0CT">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ze5-C2-0CT" id="1ml-mn-eq1">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -85,24 +88,40 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kdE-Fe-4CW" userLabel="GMap View" customClass="GMSMapView">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="400" height="551"/>
-                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kdE-Fe-4CW" firstAttribute="leading" secondItem="2aW-LF-56c" secondAttribute="leading" id="CjS-Jg-pvY"/>
+                            <constraint firstAttribute="trailing" secondItem="kdE-Fe-4CW" secondAttribute="trailing" id="T9k-46-eGR"/>
+                            <constraint firstItem="kdE-Fe-4CW" firstAttribute="bottom" secondItem="Fz0-wb-2zM" secondAttribute="top" id="UwS-FW-jzK"/>
+                            <constraint firstItem="kdE-Fe-4CW" firstAttribute="top" secondItem="2aW-LF-56c" secondAttribute="top" id="eKy-BC-c5n"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="kdE-Fe-4CW"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="CjS-Jg-pvY"/>
+                                <exclude reference="T9k-46-eGR"/>
+                                <exclude reference="UwS-FW-jzK"/>
+                                <exclude reference="eKy-BC-c5n"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="kdE-Fe-4CW"/>
                             </mask>
+                            <mask key="constraints">
+                                <include reference="CjS-Jg-pvY"/>
+                                <include reference="T9k-46-eGR"/>
+                                <include reference="UwS-FW-jzK"/>
+                                <include reference="eKy-BC-c5n"/>
+                            </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="POI Locator" id="PlM-P2-KsQ">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="72q-4B-2Jl"/>
                         <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="6Xe-Ds-sNg">
                             <connections>
                                 <action selector="search:" destination="Wxv-nL-ZV5" id="n8K-jS-PVh"/>
@@ -123,11 +142,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="kdE-Fe-4CW" id="XjC-Op-iCS"/>
+                        <segue destination="ocO-r9-PTx" kind="show" identifier="DetailSegue" id="RgT-iH-qU7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HBh-8r-x95" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="507" y="-448"/>
+            <point key="canvasLocation" x="516" y="-448"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="20G-dT-JLF">
@@ -147,7 +167,7 @@
             </objects>
             <point key="canvasLocation" x="-1341" y="-117"/>
         </scene>
-        <!--Place Detail View Controller-->
+        <!--Place Details-->
         <scene sceneID="eK9-sN-O2B">
             <objects>
                 <viewController id="ocO-r9-PTx" customClass="PlaceDetailViewController" customModule="POI_Locator" customModuleProvider="target" sceneMemberID="viewController">
@@ -242,13 +262,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="TYS-hL-YJU">
+                    <navigationItem key="navigationItem" title="Place Details" id="TYS-hL-YJU">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="Jc8-sd-CZ8"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="sFV-fh-4LK"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t2E-nC-EWX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2307" y="323"/>
+            <point key="canvasLocation" x="2295" y="377"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LE3-QF-4fF">
@@ -303,24 +324,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ugr-JG-KRX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-411" y="243"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="wz8-Qb-VEk">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fLz-JD-I2F" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fIK-hY-hde">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="ocO-r9-PTx" kind="relationship" relationship="rootViewController" id="6jx-Cr-TvX"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HU4-YP-vCM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1389" y="323"/>
         </scene>
     </scenes>
     <resources>

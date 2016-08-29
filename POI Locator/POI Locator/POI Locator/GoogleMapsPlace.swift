@@ -9,7 +9,7 @@
 import Foundation
 import CoreLocation
 
-class Place {
+class GoogleMapsPlace {
     let position: CLLocationCoordinate2D
     let category: String
     let name: String

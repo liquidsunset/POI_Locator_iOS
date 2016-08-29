@@ -10,6 +10,12 @@ import Foundation
 import UIKit
 
 class PlaceDetailViewController: UIViewController {
+    var place: GoogleMapsPlace!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        print(place.name)
+    }
 }
 

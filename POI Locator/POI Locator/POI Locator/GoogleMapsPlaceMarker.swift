@@ -9,14 +9,18 @@
 import Foundation
 import GoogleMaps
 
-class PlaceMarker: GMSMarker {
-    let place: Place
+class GoogleMapsPlaceMarker: GMSMarker {
+    let place: GoogleMapsPlace
 
-    init(place: Place) {
+    init(place: GoogleMapsPlace) {
         self.place = place
         super.init()
         position = place.position
-        appearAnimation = kGMSMarkerAnimationPop
         icon = UIImage(named: place.category)
+        appearAnimation = kGMSMarkerAnimationPop
+    }
+    
+    func getPlace() -> GoogleMapsPlace {
+        return place
     }
 }
