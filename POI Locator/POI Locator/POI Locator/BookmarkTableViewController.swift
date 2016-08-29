@@ -41,7 +41,7 @@ class BookmarkTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("BookmarkCell")! as UITableViewCell
         cell.textLabel?.text = bookmarks[indexPath.row].name
         cell.detailTextLabel?.text = bookmarks[indexPath.row].address
-        print(bookmarks[indexPath.row].name)
+
         if let imageIcon = UIImage(named: bookmarks[indexPath.row].category!) {
             cell.imageView?.image = imageIcon
         } else {
