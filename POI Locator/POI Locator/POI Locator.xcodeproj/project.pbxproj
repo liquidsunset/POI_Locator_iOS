@@ -611,6 +611,12 @@
 			baseConfigurationReference = 07CB26BC36C3E5B12724E60E /* Pods-POI Locator.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"/**",
+					"\"${PODS_ROOT}/Headers/Public/GoogleMaps\"/**",
+					"\"${PODS_ROOT}/Headers/Public/GooglePlaces\"/**",
+				);
 				INFOPLIST_FILE = "POI Locator/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.liquidsunset.POI-Locator";
@@ -623,6 +629,12 @@
 			baseConfigurationReference = D5729C58CCAE66657E7621BD /* Pods-POI Locator.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"/**",
+					"\"${PODS_ROOT}/Headers/Public/GoogleMaps\"/**",
+					"\"${PODS_ROOT}/Headers/Public/GooglePlaces\"/**",
+				);
 				INFOPLIST_FILE = "POI Locator/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.liquidsunset.POI-Locator";
