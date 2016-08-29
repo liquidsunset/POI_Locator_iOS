@@ -9,92 +9,81 @@
 import Foundation
 import CoreData
 import UIKit
+import CoreLocation
 
 class FlickrClient {
 
     static let sharedInstance = FlickrClient()
     
-    func getPictures(pageNumber: Int?, pin: Pin, context: NSManagedObjectContext, completionHandler: (photos:[Photo]!, errorMessage:String?) -> Void) {
+    func getPictures(pageNumber: Int?, position: CLLocationCoordinate2D, completionHandler: (data: AnyObject?, errorMessage:String?) -> Void) {
         
         
-        var urlString = ""
-        context.performBlockAndWait() {
-            urlString = self.createFlickrUrlString(pageNumber, lat: Double(pin.latidude!), lon: Double(pin.longitude!))
-        }
-        
+        let urlString = createFlickrUrlString(pageNumber, lat: position.latitude, lon: position.longitude)
         
         let url = NSURL(string: urlString)
         let request = NSMutableURLRequest(URL: url!)
-        
+        print(urlString)
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) {
             data, response, error in
             
             guard (error == nil) else {
-                return completionHandler(photos: nil, errorMessage: error?.description)
+                return completionHandler(data: nil, errorMessage: error?.description)
             }
             
             guard let data = data else {
-                completionHandler(photos: nil, errorMessage: "No data received")
+                completionHandler(data: nil, errorMessage: "No data received")
                 return
             }
             
             Utility.parseJSONWithCompletionHandler(data) {
                 (parsedJsonResult, error) in
                 guard (error == nil) else {
-                    completionHandler(photos: nil, errorMessage: "Failed to parse Data")
+                    completionHandler(data: nil, errorMessage: "Failed to parse Data")
                     return
                 }
                 
                 guard let parsedJsonResult = parsedJsonResult else {
-                    completionHandler(photos: nil, errorMessage: "Failed to parse Data")
+                    completionHandler(data: nil, errorMessage: "Failed to parse Data")
                     return
                 }
                 
                 guard let status = parsedJsonResult[JsonResponseKeys.Status] as? String where status == JsonResponseValues.JsonOKStatus else {
-                    completionHandler(photos: nil, errorMessage: "Failure in JSON-Response")
+                    completionHandler(data: nil, errorMessage: "Failure in JSON-Response")
                     return
                 }
                 
                 guard let photosDic = parsedJsonResult[JsonResponseKeys.Photos] as? [String:AnyObject] else {
-                    completionHandler(photos: nil, errorMessage: "Error getting photo-dic")
+                    completionHandler(data: nil, errorMessage: "Error getting photo-dic")
                     return
                 }
                 
                 if (pageNumber == nil) {
                     guard let pages = photosDic[JsonResponseKeys.Pages] as? Int else {
-                        completionHandler(photos: nil, errorMessage: "No Flickr Photo-Page found")
+                        completionHandler(data: nil, errorMessage: "No Flickr Photo-Page found")
                         return
                     }
                     let pageLimit = min(pages, 40)
                     let random = Int(arc4random_uniform(UInt32(pageLimit))) + 1
-                    self.getPictures(random, pin: pin, context: context, completionHandler: completionHandler)
+                    self.getPictures(random, position: position, completionHandler: completionHandler)
                     
                 } else {
                     
                     guard let photoArray = photosDic[JsonResponseKeys.Photo] as? [[String:AnyObject]] else {
-                        completionHandler(photos: nil, errorMessage: "Error creating photo-array")
+                        completionHandler(data: nil, errorMessage: "Error creating photo-array")
                         return
                     }
                     
                     guard (photoArray.count != 0) else {
-                        completionHandler(photos: nil, errorMessage: "No photos found")
+                        completionHandler(data: nil, errorMessage: "No photos found")
                         return
                     }
                     
-                    
-                    let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
-                    let stack = delegate.stack
-                    context.performBlockAndWait() {
-                        stack.save()
-                    }
-                    
-                    completionHandler(photos: persistentPhotosArray, errorMessage: nil)
+                    completionHandler(data: photoArray, errorMessage: nil)
                 }
             }
             
         }
-        
         
         task.resume()
         

@@ -91,7 +91,7 @@ class GoogleMapsClient {
         let urlString = Constants.BaseUrlSecure + Methods.NearBySearch + Utility.escapedParameters(urlParameters)
         let url = NSURL(string: urlString)
         let request = NSMutableURLRequest(URL: url!)
-        print(url)
+
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) {
             (data, response, error) in
@@ -145,7 +145,7 @@ class GoogleMapsClient {
         let urlString = Constants.BaseUrlSecure + Methods.PhotoSearch + Utility.escapedParameters(urlParameters)
         let url = NSURL(string: urlString)
         let request = NSMutableURLRequest(URL: url!)
-        print(urlString)
+
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) {
             (data, response, error) in
