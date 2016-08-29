@@ -60,4 +60,8 @@ class CategoryTableViewController: UITableViewController {
 
         tableView.reloadData()
     }
+    
+    func getCategoryForKey(key: String) -> String {
+        return categoryTypesDic[key]!
+    }
 }

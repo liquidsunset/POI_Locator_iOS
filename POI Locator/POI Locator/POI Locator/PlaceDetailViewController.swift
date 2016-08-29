@@ -18,15 +18,21 @@ class PlaceDetailViewController: UIViewController {
     
     @IBOutlet weak var placeImageView: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
+
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var categoryLabel: UILabel!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        addressLabel.lineBreakMode = .ByWordWrapping
+        addressLabel.numberOfLines = 2
         let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
         stack = delegate.stack
         
         if place.photoRef != nil{
-            
         
         GoogleMapsClient.sharedInstance.getPictureForPlace(place.photoRef){
             (photo, error) in
@@ -37,12 +43,25 @@ class PlaceDetailViewController: UIViewController {
                 }
                 return
             }
-        }}
+
+            self.performUpdatesOnMain(){
+             self.place.photo = photo
+                self.placeImageView.image = photo
+            }
+
+        }
+            
+        }else {
+            place.photo = UIImage(named: "placeholder")
+            placeImageView.image = place.photo
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        placeImageView.image = place.photo
+        nameLabel.text = place.name
+        addressLabel.text = place.vicinity
+        categoryLabel.text = CategoryTableViewController().getCategoryForKey(place.category)
         collectionView.delegate = self
         collectionView.dataSource = self
       getImages()
@@ -54,7 +73,7 @@ class PlaceDetailViewController: UIViewController {
     }
 
     @IBAction func saveBookmark(sender: AnyObject) {
-        let savedPlace = Place(latitude: place.position.latitude, longitude: place.position.longitude, address: place.vicinity, name: place.name, context: stack.context)
+        _ = Place(latitude: place.position.latitude, longitude: place.position.longitude, address: place.vicinity, name: place.name,category: place.category, context: stack.context)
         stack.save()
         navigationController!.popViewControllerAnimated(true)
     }
@@ -107,6 +126,7 @@ extension PlaceDetailViewController: UICollectionViewDelegate, UICollectionViewD
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("FlickrCell", forIndexPath: indexPath) as! FlickrCell
         cell.imageView.image = photos[indexPath.row]
+        cell.layoutIfNeeded()
         return cell
     }
 }

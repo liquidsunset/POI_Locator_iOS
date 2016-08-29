@@ -30,6 +30,10 @@ class GMapsViewController: UIViewController, SetMapPos {
         locationManager.requestWhenInUseAuthorization()
     }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+            setSavedMapPosition()
+    }
 
     func setLatLon(latitude: Double, longitude: Double, title: String) {
         performUpdatesOnMain() {
@@ -42,7 +46,9 @@ class GMapsViewController: UIViewController, SetMapPos {
             self.mapView.camera = camera
             marker.map = self.mapView
             self.mapView.selectedMarker = marker
+            self.getPlaces()
         }
+        
     }
 
     @IBAction func searchAddress(sender: AnyObject) {
@@ -86,6 +92,21 @@ class GMapsViewController: UIViewController, SetMapPos {
             let controller = navigationController.topViewController as! CategoryTableViewController
             controller.selectedCategories = selectedCategories
         }
+    }
+    
+    func setSavedMapPosition(){
+        let lat = NSUserDefaults.standardUserDefaults().doubleForKey(Constants.Latitude)
+        let long = NSUserDefaults.standardUserDefaults().doubleForKey(Constants.Longitude)
+        
+        let position: GMSCameraPosition
+        
+        if (lat == 0 && long == 0){
+            position = GMSCameraPosition(target: CLLocationCoordinate2D(latitude: 47.4, longitude: 8.5), zoom: 15, bearing: 0, viewingAngle: 0)
+        } else {
+            position = GMSCameraPosition(target: CLLocationCoordinate2D(latitude: lat, longitude: long), zoom: 15, bearing: 0, viewingAngle: 0)
+        }
+        
+        mapView.camera = position
     }
 }
 
@@ -131,7 +152,13 @@ extension GMapsViewController: GMSMapViewDelegate {
         let placeDetailVC = storyboard?.instantiateViewControllerWithIdentifier("PlaceDetailVC") as! PlaceDetailViewController
         placeDetailVC.place = place
         self.navigationController?.pushViewController(placeDetailVC, animated: true)
+        tabBarController?.tabBar.hidden = true
         return true
+    }
+    
+    func mapView(mapView: GMSMapView, didChangeCameraPosition position: GMSCameraPosition) {
+        NSUserDefaults.standardUserDefaults().setDouble(position.target.latitude, forKey: Constants.Latitude)
+        NSUserDefaults.standardUserDefaults().setDouble(position.target.longitude, forKey: Constants.Longitude)
     }
 
 }
@@ -145,12 +172,19 @@ extension GMapsViewController: CLLocationManagerDelegate {
         }
     }
 
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    /*func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
-            mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 5, bearing: 0, viewingAngle: 0)
+            mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
             locationManager.stopUpdatingLocation()
             getPlaces()
         }
+    }*/
+}
+
+extension GMapsViewController {
+    struct Constants {
+        static let Latitude = "latitude"
+        static let Longitude = "longitude"
     }
 }
 

@@ -13,14 +13,17 @@ import CoreData
 class BookmarkTableViewController: UITableViewController {
     
     var bookmarks: [Place] = [Place]()
+    var stack: CoreDataStack!
     
     override func viewWillAppear(animated: Bool) {
+        let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        stack = delegate.stack
         fetchBookmarks()
+        tableView.reloadData()
     }
     
     func fetchBookmarks(){
-        let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let stack = delegate.stack
+        
         do {
             let fr = NSFetchRequest(entityName: "Place")
             
@@ -35,10 +38,10 @@ class BookmarkTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("BookmarkCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("BookmarkCell")! as UITableViewCell
         cell.textLabel?.text = bookmarks[indexPath.row].name
         cell.detailTextLabel?.text = bookmarks[indexPath.row].address
-        
+        print(bookmarks[indexPath.row].name)
         if let imageIcon = UIImage(named: bookmarks[indexPath.row].category!) {
             cell.imageView?.image = imageIcon
         } else {
@@ -46,4 +49,17 @@ class BookmarkTableViewController: UITableViewController {
         }
         return cell
     }
+    
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            stack.context.deleteObject(bookmarks[indexPath.row])
+            stack.save()
+            fetchBookmarks()
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            tableView.reloadData()
+        }}
 }
