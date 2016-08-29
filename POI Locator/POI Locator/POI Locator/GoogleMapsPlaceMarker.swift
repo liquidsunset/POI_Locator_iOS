@@ -19,7 +19,7 @@ class GoogleMapsPlaceMarker: GMSMarker {
         icon = UIImage(named: place.category)
         appearAnimation = kGMSMarkerAnimationPop
     }
-    
+
     func getPlace() -> GoogleMapsPlace {
         return place
     }

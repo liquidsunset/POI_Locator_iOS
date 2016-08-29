@@ -12,20 +12,19 @@ import CoreData
 
 class Place: NSManagedObject {
 
-        
-        convenience init(latitude: Double, longitude: Double, address: String,name: String, category: String, context: NSManagedObjectContext){
-            if let createEntity = NSEntityDescription.entityForName("Place", inManagedObjectContext: context){
-                self.init(entity: createEntity, insertIntoManagedObjectContext: context)
-                self.latitude = latitude
-                self.longitude = longitude
-                self.address = address
-                self.name = name
-                self.category = category
-            } else {
-                fatalError("Unable to find Entity Name!")
-            }
+
+    convenience init(latitude: Double, longitude: Double, address: String, name: String, category: String, context: NSManagedObjectContext) {
+        if let createEntity = NSEntityDescription.entityForName("Place", inManagedObjectContext: context) {
+            self.init(entity: createEntity, insertIntoManagedObjectContext: context)
+            self.latitude = latitude
+            self.longitude = longitude
+            self.address = address
+            self.name = name
+            self.category = category
+        } else {
+            fatalError("Unable to find Entity Name!")
         }
-        
-    
+    }
+
 
 }

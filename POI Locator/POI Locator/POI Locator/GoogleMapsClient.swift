@@ -135,13 +135,13 @@ class GoogleMapsClient {
     }
 
     func getPictureForPlace(photoRefString: String!, completionHandler: (photo:UIImage!, errorMessage:String!) -> Void) {
-        
+
         let urlParameters: [String:AnyObject] = [
-            URLParameterKeys.PhotoReference: photoRefString,
-            URLParameterKeys.Key: URLParametersValues.KeyValue,
-            URLParameterKeys.MaxWidth: URLParametersValues.MaxWidthValue
+                URLParameterKeys.PhotoReference: photoRefString,
+                URLParameterKeys.Key: URLParametersValues.KeyValue,
+                URLParameterKeys.MaxWidth: URLParametersValues.MaxWidthValue
         ]
-        
+
         let urlString = Constants.BaseUrlSecure + Methods.PhotoSearch + Utility.escapedParameters(urlParameters)
         let url = NSURL(string: urlString)
         let request = NSMutableURLRequest(URL: url!)
@@ -149,20 +149,20 @@ class GoogleMapsClient {
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) {
             (data, response, error) in
-            
+
             guard (error == nil) else {
                 completionHandler(photo: nil, errorMessage: error?.localizedDescription)
                 return
             }
-            
+
             let photo = UIImage(data: data!)
-            
+
             dispatch_async(dispatch_get_main_queue()) {
                 completionHandler(photo: photo, errorMessage: nil)
             }
 
         }
-        
+
         task.resume()
     }
 }
