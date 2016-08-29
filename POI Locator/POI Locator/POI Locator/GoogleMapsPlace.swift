@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreLocation
+import UIKit
 
 class GoogleMapsPlace {
     let position: CLLocationCoordinate2D
@@ -18,6 +19,7 @@ class GoogleMapsPlace {
     let vicinity: String
     var photoRef: String?
     let placeId: String
+    var photo: UIImage!
 
     init(position: CLLocationCoordinate2D, category: String, name: String, id: String, openNow: Bool?, vicinity: String, photoRef: String?, placeId: String) {
         self.position = position

@@ -12,7 +12,7 @@ import UIKit
 
 class FlickrClient {
 
-    /*static let sharedInstance = FlickrClient()
+    static let sharedInstance = FlickrClient()
     
     func getPictures(pageNumber: Int?, pin: Pin, context: NSManagedObjectContext, completionHandler: (photos:[Photo]!, errorMessage:String?) -> Void) {
         
@@ -145,6 +145,6 @@ class FlickrClient {
         }
         return Constants.BaseUrlSecure + Utility.escapedParameters(urlParameters)
         
-    }*/
+    }
 
 }

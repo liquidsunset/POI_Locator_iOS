@@ -38,7 +38,7 @@ class GMapsViewController: UIViewController, SetMapPos {
             marker.title = title
             marker.appearAnimation = kGMSMarkerAnimationPop
 
-            let camera = GMSCameraPosition.cameraWithLatitude(latitude, longitude: longitude, zoom: 5)
+            let camera = GMSCameraPosition.cameraWithLatitude(latitude, longitude: longitude, zoom: 15)
             self.mapView.camera = camera
             marker.map = self.mapView
             self.mapView.selectedMarker = marker

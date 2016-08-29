@@ -17,6 +17,7 @@ extension GoogleMapsClient {
     struct Methods {
         static let GeocodeSearch = "geocode/json"
         static let NearBySearch = "place/nearbysearch/json"
+        static let PhotoSearch = "place/photo"
     }
 
     struct URLParameterKeys {
@@ -26,12 +27,15 @@ extension GoogleMapsClient {
         static let Location = "location"
         static let Categories = "types"
         static let Key = "key"
+        static let PhotoReference = "photoreference"
+        static let MaxWidth = "maxwidth"
     }
 
     struct URLParametersValues {
         static let RadiusValue = 1500
         static let ProminenceRank = "prominence"
         static let KeyValue = "AIzaSyCG0V0sKWvU4jrXLgkX74mshykyJjloTHQ"
+        static let MaxWidthValue = "400"
     }
 
     struct JsonResponseKeys {
@@ -46,7 +50,7 @@ extension GoogleMapsClient {
         static let PlaceId = "place_id"
         static let Vicinity = "vicinity"
         static let Photos = "photos"
-        static let PhotosRef = "photos_reference"
+        static let PhotosRef = "photo_reference"
         static let Categories = "types"
     }
 
