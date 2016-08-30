@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		34312AAC1D75105900F919E3 /* Place+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34312AAA1D75105900F919E3 /* Place+CoreDataProperties.swift */; };
+		34312AAD1D75105900F919E3 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34312AAB1D75105900F919E3 /* Place.swift */; };
 		3452F0271D701950002CEFB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3452F0261D701950002CEFB3 /* AppDelegate.swift */; };
 		3452F02C1D701950002CEFB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3452F02A1D701950002CEFB3 /* Main.storyboard */; };
 		3452F02E1D701950002CEFB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3452F02D1D701950002CEFB3 /* Assets.xcassets */; };
@@ -32,8 +34,6 @@
 		34DC3F041D737D8D00CD4254 /* GoogleMapsPlaceMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DC3F031D737D8D00CD4254 /* GoogleMapsPlaceMarker.swift */; };
 		34EAE6951D746E630035ECDD /* FlickrCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EAE6941D746E630035ECDD /* FlickrCell.swift */; };
 		34EAE6A31D74A3390035ECDD /* BookmarkTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EAE6A21D74A3390035ECDD /* BookmarkTableViewController.swift */; };
-		34EAE6A61D74B55C0035ECDD /* Place+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EAE6A41D74B55C0035ECDD /* Place+CoreDataProperties.swift */; };
-		34EAE6A71D74B55C0035ECDD /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EAE6A51D74B55C0035ECDD /* Place.swift */; };
 		697AAFC64907222608C47E8E /* Pods_POI_Locator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D16C532CE5291DE98C99B1 /* Pods_POI_Locator.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +57,8 @@
 /* Begin PBXFileReference section */
 		07CB26BC36C3E5B12724E60E /* Pods-POI Locator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-POI Locator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-POI Locator/Pods-POI Locator.debug.xcconfig"; sourceTree = "<group>"; };
 		08D16C532CE5291DE98C99B1 /* Pods_POI_Locator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_POI_Locator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		34312AAA1D75105900F919E3 /* Place+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Place+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		34312AAB1D75105900F919E3 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		3452F0231D701950002CEFB3 /* POI Locator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "POI Locator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3452F0261D701950002CEFB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3452F02B1D701950002CEFB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -88,8 +90,6 @@
 		34DC3F031D737D8D00CD4254 /* GoogleMapsPlaceMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMapsPlaceMarker.swift; sourceTree = "<group>"; };
 		34EAE6941D746E630035ECDD /* FlickrCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrCell.swift; sourceTree = "<group>"; };
 		34EAE6A21D74A3390035ECDD /* BookmarkTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkTableViewController.swift; sourceTree = "<group>"; };
-		34EAE6A41D74B55C0035ECDD /* Place+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Place+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		34EAE6A51D74B55C0035ECDD /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		D5729C58CCAE66657E7621BD /* Pods-POI Locator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-POI Locator.release.xcconfig"; path = "Pods/Target Support Files/Pods-POI Locator/Pods-POI Locator.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -220,8 +220,8 @@
 		3452F0581D7019EA002CEFB3 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				34EAE6A41D74B55C0035ECDD /* Place+CoreDataProperties.swift */,
-				34EAE6A51D74B55C0035ECDD /* Place.swift */,
+				34312AAA1D75105900F919E3 /* Place+CoreDataProperties.swift */,
+				34312AAB1D75105900F919E3 /* Place.swift */,
 				34DC3EDE1D7022A500CD4254 /* CoreDataStack.swift */,
 				34DC3EEA1D70326F00CD4254 /* POILocator.xcdatamodeld */,
 			);
@@ -454,7 +454,7 @@
 				34DC3EE51D70247300CD4254 /* FlickrClient.swift in Sources */,
 				34DC3F041D737D8D00CD4254 /* GoogleMapsPlaceMarker.swift in Sources */,
 				34DC3EEC1D70326F00CD4254 /* POILocator.xcdatamodeld in Sources */,
-				34EAE6A61D74B55C0035ECDD /* Place+CoreDataProperties.swift in Sources */,
+				34312AAC1D75105900F919E3 /* Place+CoreDataProperties.swift in Sources */,
 				34DC3EEE1D703FE500CD4254 /* CategoryTableViewController.swift in Sources */,
 				34EAE6A31D74A3390035ECDD /* BookmarkTableViewController.swift in Sources */,
 				34EAE6951D746E630035ECDD /* FlickrCell.swift in Sources */,
@@ -468,7 +468,7 @@
 				34DC3EF61D71CAE000CD4254 /* GoogleMapsClient.swift in Sources */,
 				34DC3EFA1D72D46700CD4254 /* CustomCollectionViewLayout.swift in Sources */,
 				34DC3EF21D704D4B00CD4254 /* SearchResultsController.swift in Sources */,
-				34EAE6A71D74B55C0035ECDD /* Place.swift in Sources */,
+				34312AAD1D75105900F919E3 /* Place.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
