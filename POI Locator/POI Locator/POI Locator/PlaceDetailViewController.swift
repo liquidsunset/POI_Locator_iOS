@@ -19,13 +19,18 @@ class PlaceDetailViewController: UIViewController {
     @IBOutlet weak var placeImageView: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
 
+    @IBOutlet weak var commentField: UITextField!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var ratingStepper: UIStepper!
+    @IBOutlet weak var ratingLabel: UILabel!
+
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+
         activityIndicator.hidden = true
         activityIndicator.stopAnimating()
         addressLabel.lineBreakMode = .ByWordWrapping
@@ -60,6 +65,13 @@ class PlaceDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        hideKeyboardWhenTappedAround()
+        ratingStepper.minimumValue = 1
+        ratingStepper.maximumValue = 10
+        ratingStepper.wraps = false
+        ratingStepper.autorepeat = true
+
         nameLabel.text = place.name
         addressLabel.text = place.vicinity
         categoryLabel.text = CategoryTableViewController().getCategoryForKey(place.category)
@@ -68,13 +80,19 @@ class PlaceDetailViewController: UIViewController {
         getImages()
     }
 
+    @IBAction func changeStepperValue(sender: UIStepper) {
+        ratingLabel.text = "Rating: \(Int(sender.value).description)"
+    }
+
     @IBAction func refreshImages(sender: AnyObject) {
         getImages()
+
         collectionView.reloadData()
     }
 
     @IBAction func saveBookmark(sender: AnyObject) {
-        _ = Place(latitude: place.position.latitude, longitude: place.position.longitude, address: place.vicinity, name: place.name, category: place.category, image: place.photo, context: stack.context)
+        _ = Place(latitude: place.position.latitude, longitude: place.position.longitude, address: place.vicinity, name: place.name, category: place.category, image: place.photo, comment: commentField.text!, rating: ratingStepper.value, context: stack.context)
+
         stack.save()
         navigationController!.popViewControllerAnimated(true)
     }
